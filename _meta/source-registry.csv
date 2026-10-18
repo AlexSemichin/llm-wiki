@@ -1,0 +1,18 @@
+src_id,path,silo,source_type,producer,captured,sha256_16,bytes,domain_hint,genre_hint,contains_client_data,client_code,legacy_ids,state,wiki_pages
+SRC-0001,PPC/Core (Templates & Frameworks)/02_account-architecture/account-structure-philosophies-matrix.md,obsidian,whiteboard-image,human,2026-06-26,cca35aabe30ba975,3029,PPC,REF,false,,ARC-01,ingested,PPC-REF-001
+SRC-0002,PPC/Core (Templates & Frameworks)/02_account-architecture/atomic-waterfall-workflow.md,obsidian,whiteboard-image,human,2026-06-26,061c78e486e4bc3a,2668,PPC,PROC,false,,ARC-03,ingested,PPC-PROC-001
+SRC-0003,PPC/Core (Templates & Frameworks)/02_account-architecture/naming-convention-enforcement.md,obsidian,whiteboard-image,human,2026-06-26,0e9d60975d40713e,2679,PPC,DATASPEC,false,,ARC-04,ingested,PPC-DATASPEC-001
+SRC-0004,PPC/Core (Templates & Frameworks)/02_account-architecture/portfolio-architecture-decision-matrix.md,obsidian,whiteboard-image,human,2026-06-26,5959543ad41550f4,2622,PPC,DECRULE,false,,ARC-06,ingested,PPC-DECRULE-001
+SRC-0005,PPC/Core (Templates & Frameworks)/02_account-architecture/campaign-structure-sku-tier-gate.md,obsidian,note,human,2026-06-26,b470ddbb8c722a25,2628,PPC,DIAG,false,,ARC-08,ingested,PPC-DIAG-001
+SRC-0006,PPC/KB/Strategy/Account & Bidding Posture.md,obsidian,note,unknown,2026-09-18,1e1e8673f759fb57,3523,PPC,REF,false,,,ingested,PPC-REF-002
+SRC-0007,PPC/KB/Marketing Concepts/Confidence Determination Methodology.md,obsidian,note,mixed,2026-09-23,1f8ee9ae499f4ac1,3611,MEAS,TECH,true,,,ingested,MEAS-TECH-001|PPC-DEC-001
+SRC-0008,PPC/Skills/Search Query Tactical Synthesis/KB/Engine Values Interpretations/Click-side Formula Fix.md,obsidian,note,mixed,2026-09-30,c4694f1e70d730cd,3426,PPC,DEC,true,,,ingested,PPC-DEC-002|LST-TECH-001
+SRC-0009,PPC/Core (Templates & Frameworks)/01_strategy/objective-architecture-decision-tree.md,obsidian,whiteboard-image,human,2026-06-26,39e97223ce8d2413,4039,PPC,,false,,STR-04,registered,
+SRC-0010,PPC/Core (Templates & Frameworks)/02_account-architecture/architecture-matrix-philosophy-funnel-tier.md,obsidian,whiteboard-image,human,2026-06-26,6d571cda48af25ca,2667,PPC,,false,,ARC-02,registered,
+SRC-0011,PPC/Core (Templates & Frameworks)/02_account-architecture/recipe-vs-campaign-fork.md,obsidian,whiteboard-image,human,2026-06-26,3efea40a452ad8d6,2505,PPC,,false,,ARC-07,registered,
+SRC-0012,PPC/Core (Templates & Frameworks)/03_sku-tiering-significance/per-sku-tier-verdict-pareto-matrix.md,obsidian,whiteboard-image,human,2026-06-26,e864924d1a4728fa,4008,PPC,,false,,TIER-01,registered,
+SRC-0013,PPC/Core (Templates & Frameworks)/04_budget-portfolio/budget-allocation-matrix.md,obsidian,whiteboard-image,human,2026-06-26,f80d16b393f1c255,2931,PPC,,false,,BUD-01,registered,
+SRC-0014,PPC/Core (Templates & Frameworks)/05_automation-engine/automation-layered-system.md,obsidian,whiteboard-image,human,2026-06-26,0ae306ad03dabde1,3825,PPC,,false,,ENG-01,registered,
+SRC-0015,PPC/Core (Templates & Frameworks)/05_automation-engine/automation-rules-library-101.md,obsidian,whiteboard-image,human,2026-06-26,93e52f170d800f94,6080,PPC,,false,,ENG-03,registered,
+SRC-0016,PPC/Core (Templates & Frameworks)/06_reporting-intelligence/core-analytical-framework.md,obsidian,whiteboard-image,human,2026-06-26,f1d7170d4201aa6b,3352,PPC,,false,,RPT-01,registered,
+SRC-0017,PPC/Core (Templates & Frameworks)/07_sb-sd-formats/cost-model-encoding-strategy.md,obsidian,whiteboard-image,human,2026-06-26,ad832823f36a43a2,3247,PPC,,false,,FMT-03,registered,

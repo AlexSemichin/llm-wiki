@@ -1,0 +1,14 @@
+
+llm-wiki-extension-memory-lifecycle is great material on the surface, but there's a tension worth flagging: "the schema is the real product" and the elaborate lifecycle apparatus (confidence decay, auto-crystallize, forgetting curves) are pulling in opposite directions. If the schema does its job, the filter sits at ingest — most of the post-processing machinery becomes a solution to problems the schema should have prevented.
+
+A few concrete concerns from running a similar but more conservative pattern in production:
+
+**1. Forgetting curves applied to errors and superseded decisions are how you repeat the same mistake.** Old doesn't mean stale. A bug logged six months ago is often _more_ valuable than one from last week, because it's the one you're about to forget. A superseded ADR still explains _why_ the current ADR exists. Ebbinghaus is a biological model tied to capacity constraints a wiki does not have. The right primitive is **explicit supersession**, not decay: the old document stays, with a header pointing to whatever replaced it. Nothing disappears; future readers know in three seconds what is live and what is history. Git becomes the natural audit trail.
+
+**2. Numeric confidence scores are false precision.** The real signal is the chain of links a claim carries — sources, related ADRs, commit history. "0.85" is not verifiable. "Confirmed in an ADR, the related commit, and two source documents" is. Putting a float on a claim dresses it in authority it didn't earn from its evidence.
+
+**3. Event-driven auto-ingest assumes reliable LLMs.** They aren't, even at frontier scale, and especially not at local-model scale. Tested a 2B Q5 model on creative synthesis: invents dependencies that aren't in context, ignores architectural constraints documented in the ADRs the model was given as input. Letting models write to the knowledge base on hooks corrupts it silently. **Human-in-the-loop as a write gate is not backwardness, it is quality control** when the writer is a stochastic process. The setup I run has a separate writer agent under a formal contract that only writes after explicit human handoff, with prefixed commits as the audit trail. Slower, but every entry is reversible and motivated.
+
+The alternative philosophy that's worked for me: **filter in ingestion, not in retention; supersession instead of decay; git as audit; manual before automated.** The schema (a CLAUDE.md plus a documented working method) does roughly 90% of the work. Everything else gets automated only after the manual loop has run dozens of real cycles and the patterns are visibly stable.
+
+The individual ideas in the gist are valuable as a vocabulary. As a blueprint, gnusupport's critique stands.
