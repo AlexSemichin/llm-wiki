@@ -12,3 +12,13 @@ Append-only. Header: `## [YYYY-MM-DD] op | title`. Ops: ingest · query · lint 
 
 ## [2026-10-18] lint | full lint, lint.py v0.2
 - 0 BLOCK · 5 WARN (L-04b `[[optmyzr]]` ×3, L-11 `AI`, L-11 `myDemand`) · 9 INFO (L-04a pending).
+
+## [2026-10-18] rename | T-1 + T-2 executed on the Mac (WR-060)
+- Wiki tree moved from Build/_exchange to Wiki/LLM-Wiki; Build/T1, Architecture, Inputs & Delivery Strategy moved into schema/, _meta/, _archive/; Wiki/KB → _meta/design/wiki-notes (W-ISS-38).
+- Commits 1a62e68 (Claude) and 9420812 (Alex). Excluded from Obsidian Sync.
+
+## [2026-10-18] lint | full lint in place, lint.py v0.2
+- 0 BLOCK · 5 WARN · 9 INFO — unchanged from the pre-move run.
+
+## [2026-10-18] schema | CLAUDE.md v0.2.1, glossary v0.2.1
+- WR-061: paste-safe YOUR ACTIONS block shape (CLAUDE.md §2.1). WR-062: `category_benchmark_rate` locked; PPC-PROC-001 → page_version 0.2.1.

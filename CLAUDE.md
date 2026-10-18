@@ -3,7 +3,7 @@ id: WIKI-META-001
 title: "CLAUDE.md — wiki maintainer instructions"
 genre: META
 page_status: promoted
-page_version: 0.2.0
+page_version: 0.2.1
 schema_version: 0.2.2
 promoted: 2026-10-18 (WR-055)
 recorded: 2026-10-18
@@ -13,7 +13,7 @@ producer: llm
 # CLAUDE.md — Amazon LLM Wiki
 
 You maintain this wiki. Alex owns the sources and the decisions. [A5]
-v0.2 changes: PG-5-HOLD in INGEST (pack §4), padded tables (WR-050), YOUR ACTIONS block (WR-051), conditional Open questions (pack §6.1).
+v0.2.1: §2.1 paste-safe block shape (WR-061). v0.2 changes: PG-5-HOLD in INGEST (pack §4), padded tables (WR-050), YOUR ACTIONS block (WR-051), conditional Open questions (pack §6.1).
 
 ## 1. Read order (every session)
 
@@ -31,23 +31,28 @@ v0.2 changes: PG-5-HOLD in INGEST (pack §4), padded tables (WR-050), YOUR ACTIO
 - Write every markdown table pre-padded per pack §6.2 (WR-050).
 - End every turn that touched a git-tracked folder with: `<folder> touched: yes — commit message: "Claude: …"` or `touched: no`.
 
-### 2.1 Exception subclass MAC-FILE-OP (WR-051)
+### 2.1 Exception subclass MAC-FILE-OP (WR-051, WR-061)
 
-Trigger: a step needs a move, rename or delete on the Mac, and the Mac link has no shell.
+Trigger: a step needs a move, rename, delete or git command on the Mac, and the Mac link has no shell.
 Rule:
 1. Put a `YOUR ACTIONS` block in the same reply that raises the step.
-2. Write each command for macOS Terminal with absolute paths.
-3. Use `mv -n` for every move and rename.
-4. End the block with exactly one verify step Alex can run.
-5. After Alex reports done, list the affected folder yourself.
-6. Log the listing result as a WR- row in the ledger.
+2. Write the block as exactly one `bash <<'EOF'` heredoc.
+3. Make `set -euo pipefail` the first line inside the heredoc.
+4. Write every path as an absolute, double-quoted path.
+5. Use `mv -n` for every move and rename.
+6. Write no numbering, no labels and no placeholders such as `<url>` inside the block; every value is literal.
+7. Make `echo "DONE — what was done"` the last line inside the heredoc.
+8. After Alex reports DONE, list the affected folder yourself.
+9. Log the listing result as a WR- row in the ledger.
 
 Block shape:
 
 ```
-YOUR ACTIONS (Mac Terminal)
-1. mv -n "/Users/CommerceMindCloud/<abs source>" "/Users/CommerceMindCloud/<abs target>/"
-2. Verify: ls "/Users/CommerceMindCloud/<abs target>/"
+bash <<'EOF'
+set -euo pipefail
+mv -n "/Users/CommerceMindCloud/Wiki/Build/_exchange/to-alex/example.md" "/Users/CommerceMindCloud/Wiki/LLM-Wiki/wiki/"
+echo "DONE — example moved"
+EOF
 ```
 
 Known upcoming triggers: T-1 after pack v0.2 promotion, T-2 reorganization, T-3 repo retirement.
