@@ -22,3 +22,11 @@ Append-only. Header: `## [YYYY-MM-DD] op | title`. Ops: ingest · query · lint 
 
 ## [2026-10-18] schema | CLAUDE.md v0.2.1, glossary v0.2.1
 - WR-061: paste-safe YOUR ACTIONS block shape (CLAUDE.md §2.1). WR-062: `category_benchmark_rate` locked; PPC-PROC-001 → page_version 0.2.1.
+
+## [2026-10-18] ingest | P3 census — vault registered, no pages built
+- Registry 17 → 1166 rows; SRC-0018..1166 `state: registered`. Order: PPC/KB, PPC, then vault A–Z. 0 sha drift on SRC-0001..0017.
+- 110 rows have blank `sha256_16` (path > 7 folders deep; staging limit). 33 personal-admin files held out of the registry pending a ruling.
+- Hints are path-derived: domain_hint on 1015/1149, genre_hint on 20, producer `unknown` on all 1149.
+
+## [2026-10-18] lint | full lint after census, lint.py v0.2
+- 0 BLOCK · 5 WARN · 9 INFO — identical to the pre-census run.
