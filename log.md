@@ -52,3 +52,9 @@ Append-only. Header: `## [YYYY-MM-DD] op | title`. Ops: ingest · query · lint 
 
 ## [2026-11-01] ingest | registry rules applied (WR-073)
 - excluded: 39 `_pre-git snapshot` rows + 5 empty files; client_code FUWO on 74 rows; source_type code on 15. States: 1306 registered, 165 excluded, 10 missing, 8 ingested. lint 0 BLOCK, 5 WARN, 9 INFO.
+
+## [2026-11-01] schema | pack v0.2.4 → v0.2.5 (W-ISS-63, WR-074)
+- Extension → source_type map completed; .lnk/.zip/.pyc excluded.
+
+## [2026-11-01] ingest | source_type backfill (WR-074)
+- export 24, note 22, code 14; 5 rows excluded (registered → excluded). States: 1301 registered, 170 excluded, 10 missing, 8 ingested. No registered row has blank source_type. lint 0 BLOCK, 5 WARN, 9 INFO.
