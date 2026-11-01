@@ -30,3 +30,11 @@ Append-only. Header: `## [YYYY-MM-DD] op | title`. Ops: ingest · query · lint 
 
 ## [2026-10-18] lint | full lint after census, lint.py v0.2
 - 0 BLOCK · 5 WARN · 9 INFO — identical to the pre-census run.
+
+## [2026-11-01] ingest | P3 re-census from the canonical Windows vault (R-P3-4, WR-070)
+- Registry 1166 → 1489 rows. Kept IDs: 943 same, 101 moved (path updated by hash match; incl. SRC-0001..0005 → PPC/Core/02_account-architecture/), 3 sha drift (SRC-0447, 0448, 0733). 109 blank `sha256_16` filled. 10 rows `state: missing`.
+- 323 new rows SRC-1167..1489 `state: registered`, hints by the census §2 rules. 34 held out (33 personal-admin + 1 credential file); 3 OS/git dotfiles excluded.
+- Hashes from sha256sum over the Windows vault (Linux VM mount).
+
+## [2026-11-01] lint | full lint after re-census, lint.py v0.2
+- 0 BLOCK · 5 WARN · 9 INFO — identical to the pre-re-census run.
