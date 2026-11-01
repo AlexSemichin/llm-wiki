@@ -4,8 +4,8 @@ aliases: [WIKI-META-002, WIKI-DATASPEC-001]
 title: "T1 Subject Pack — Amazon (schema)"
 genre: META
 page_status: promoted
-page_version: 0.2.3
-schema_version: 0.2.3
+page_version: 0.2.4
+schema_version: 0.2.4
 promoted: 2026-10-18 (WR-055)
 recorded: 2026-10-18
 producer: llm
@@ -17,7 +17,7 @@ depends_on: [T1_glossary_amazon, T1_abbreviation-definitions, T1_frontmatter-spe
 PURPOSE — Define what can exist in the Amazon LLM wiki (domains, entity types, edges, claims), how pages are identified and shaped, and which deterministic checks every page must pass. [A3, A7]
 
 Terms resolve in `schema/T1_glossary_amazon.md`. Abbreviations resolve in `schema/T1_abbreviation-definitions.md`. Versions live in each file's frontmatter and in git (WR-039).
-v0.2 applies P2.2 findings F1–F14 (WR-045) and WR-050. v0.2.1 applies the re-render findings R1–R6. v0.2.2 applies W-ISS-37 (3 widest cells shortened) and R9 (`query_market_rate`). v0.2.3 adds `state: missing` (W-ISS-61). Change map: §11.
+v0.2 applies P2.2 findings F1–F14 (WR-045) and WR-050. v0.2.1 applies the re-render findings R1–R6. v0.2.2 applies W-ISS-37 (3 widest cells shortened) and R9 (`query_market_rate`). v0.2.3 adds `state: missing` (W-ISS-61). v0.2.4 adds `code`, `FUWO`, snapshot/empty exclusion and the newest-per-hash rule (W-ISS-48, 50, 51). Change map: §11.
 
 ---
 
@@ -242,7 +242,7 @@ Raw notes stay untouched. Their metadata lives in `_meta/source-registry.csv`.
 | src_id               | `SRC-0001`… never reused                                                                    |
 | path                 | vault-relative path of the raw note or file                                                 |
 | silo                 | obsidian · gdrive · notion · mac-disk · apple-notes                                         |
-| source_type          | note · llm-session · article · export · whiteboard-image · transcript                       |
+| source_type          | note · llm-session · article · export · whiteboard-image · transcript · code                |
 | producer             | human · llm · mixed · unknown                                                               |
 | captured             | the source's own capture date when its frontmatter states one, else file mtime (local date) |
 | sha256_16            | first 16 hex characters of the SHA-256 content hash at registration                         |
@@ -250,7 +250,7 @@ Raw notes stay untouched. Their metadata lives in `_meta/source-registry.csv`.
 | domain_hint          | one domain code                                                                             |
 | genre_hint           | one genre code                                                                              |
 | contains_client_data | true · false                                                                                |
-| client_code          | ENSO · BERL · LUND · JAYE · blank                                                           |
+| client_code          | ENSO · BERL · LUND · JAYE · FUWO · blank                                                    |
 | legacy_ids           | `\|`-separated                                                                              |
 | state                | registered · ingested · excluded · missing                                                  |
 | wiki_pages           | `\|`-separated page IDs built from it                                                       |
@@ -258,6 +258,10 @@ Raw notes stay untouched. Their metadata lives in `_meta/source-registry.csv`.
 Rule: a source with `producer: llm`, `mixed` or `unknown` never supports `prov: V` on its own.
 Rule: `producer: unknown` is treated as `mixed` (F6).
 Rule: `state: missing` = a registered path no longer present in the canonical vault and with no hash match elsewhere; the row and its `src_id` are kept (W-ISS-61).
+Rule: path token `FOWU` is a typo alias of `FUWO`; it registers as `client_code: FUWO` (W-ISS-48).
+Rule: `source_type: code` = scripts and tool configs (.py, .skill, .canvas, .base) (W-ISS-50).
+Rule: rows under `_pre-git snapshot` and 0-byte files are `state: excluded` (W-ISS-51).
+Rule: P4 ingests only the newest-`captured` path in each `sha256_16` group; the other rows stay `registered` (W-ISS-51).
 Rule: `client_code` is blank when `contains_client_data: false`, or when the client is unknown (CLIENT-UNKNOWN, §5.1).
 Rule: a sha256_16 change marks the source `registered` again (re-ingest due).
 
@@ -341,6 +345,9 @@ These land as frontmatter spec v0.2 and glossary v0.2 when this pack is promoted
 | W-ISS-37 | 3 widest table cells moved to notes (Client row, §10 glossary row, appendix padding row)                       | §3, §10, appendix |
 | R9       | "market CTR" and "category benchmark" (SRC-0008 sense) locked as `query_market_rate` (WR-055)                  | §10               |
 | W-ISS-61 | Registry `state` enum + `missing` and its rule (WR-071)                                                        | §7                |
+| W-ISS-48 | `client_code` + FUWO; FOWU alias rule (WR-073)                                                                 | §7                |
+| W-ISS-50 | `source_type` + code (WR-073)                                                                                  | §7                |
+| W-ISS-51 | Snapshot/empty exclusion; P4 newest-per-hash rule (WR-073)                                                     | §7                |
 
 ---
 

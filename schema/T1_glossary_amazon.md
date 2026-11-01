@@ -3,8 +3,8 @@ id: WIKI-GLOSS-002
 title: "T1 Glossary — Amazon LLM Wiki"
 genre: GLOSS
 page_status: promoted
-page_version: 0.2.1
-schema_version: 0.2.2
+page_version: 0.2.2
+schema_version: 0.2.4
 recorded: 2026-10-18
 promoted: 2026-10-18 (WR-055)
 producer: llm
@@ -53,7 +53,7 @@ v0.2.1: §1 adds `category_benchmark_rate` (WR-062). v0.2 changes: §1 adds `que
 | model (LLM)                                                    | `llm`                             | Language model that produced or judged text                                                                              | claude-opus-5-5                                                                           |
 | model (data)                                                   | → genre `DATASPEC`                | —                                                                                                                        | —                                                                                         |
 | source (file)                                                  | `raw_source`                      | Immutable file in wiki_layer raw                                                                                         | raw/ppc/img16.png                                                                         |
-| source (format)                                                | `source_type`                     | Format of a raw_source                                                                                                   | llm-session · article · export · whiteboard-image · note · transcript                     |
+| source (format)                                                | `source_type`                     | Format of a raw_source                                                                                                   | llm-session · article · export · whiteboard-image · note · transcript · code              |
 | source (knowledge method)                                      | `method_class`                    | Epistemic method behind a claim                                                                                          | expert_opinion · extrapolation · econometric · data_multivariate · intentions · role_play |
 | scope (project)                                                | `project_scope`                   | H§2 boundary                                                                                                             | —                                                                                         |
 | scope (claim)                                                  | `evidence_scope`                  | How far a claim may be generalized                                                                                       | entity_only · domain · global                                                             |

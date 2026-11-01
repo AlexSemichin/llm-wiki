@@ -46,3 +46,9 @@ Append-only. Header: `## [YYYY-MM-DD] op | title`. Ops: ingest · query · lint 
 - domain_hint set on 69: CTLG 50, PPC 8, INTEL 4, LST 2, MEAS 2, AGCY 2 (contains_client_data true, client unknown), ECON 1.
 - 121 rows `state: excluded`: Information Retrieval, Agent Architecture & OS Engineering, Command Center, Vault/*, Agency_CommerceMind, Reasoning, KA, Onboarding. States: 1350 registered, 121 excluded, 10 missing, 8 ingested.
 - lint 0 BLOCK, 5 WARN, 9 INFO (unchanged).
+
+## [2026-11-01] schema | pack v0.2.3 → v0.2.4, glossary v0.2.1 → v0.2.2 (W-ISS-48, 50, 51; WR-073)
+- `source_type` += code; `client_code` += FUWO (FOWU = typo alias); snapshot + 0-byte rows excluded; P4 newest-captured-per-hash rule.
+
+## [2026-11-01] ingest | registry rules applied (WR-073)
+- excluded: 39 `_pre-git snapshot` rows + 5 empty files; client_code FUWO on 74 rows; source_type code on 15. States: 1306 registered, 165 excluded, 10 missing, 8 ingested. lint 0 BLOCK, 5 WARN, 9 INFO.
