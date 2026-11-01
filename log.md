@@ -38,3 +38,6 @@ Append-only. Header: `## [YYYY-MM-DD] op | title`. Ops: ingest · query · lint 
 
 ## [2026-11-01] lint | full lint after re-census, lint.py v0.2
 - 0 BLOCK · 5 WARN · 9 INFO — identical to the pre-re-census run.
+
+## [2026-11-01] schema | subject pack v0.2.2 → v0.2.3 (W-ISS-61, WR-071)
+- Registry `state` enum adds `missing` + definition rule (§7); change map row (§11). L-16 PASS; lint 0 BLOCK.

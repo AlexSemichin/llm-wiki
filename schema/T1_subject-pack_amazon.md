@@ -4,8 +4,8 @@ aliases: [WIKI-META-002, WIKI-DATASPEC-001]
 title: "T1 Subject Pack — Amazon (schema)"
 genre: META
 page_status: promoted
-page_version: 0.2.2
-schema_version: 0.2.2
+page_version: 0.2.3
+schema_version: 0.2.3
 promoted: 2026-10-18 (WR-055)
 recorded: 2026-10-18
 producer: llm
@@ -17,7 +17,7 @@ depends_on: [T1_glossary_amazon, T1_abbreviation-definitions, T1_frontmatter-spe
 PURPOSE — Define what can exist in the Amazon LLM wiki (domains, entity types, edges, claims), how pages are identified and shaped, and which deterministic checks every page must pass. [A3, A7]
 
 Terms resolve in `schema/T1_glossary_amazon.md`. Abbreviations resolve in `schema/T1_abbreviation-definitions.md`. Versions live in each file's frontmatter and in git (WR-039).
-v0.2 applies P2.2 findings F1–F14 (WR-045) and WR-050. v0.2.1 applies the re-render findings R1–R6. v0.2.2 applies W-ISS-37 (3 widest cells shortened) and R9 (`query_market_rate`). Change map: §11.
+v0.2 applies P2.2 findings F1–F14 (WR-045) and WR-050. v0.2.1 applies the re-render findings R1–R6. v0.2.2 applies W-ISS-37 (3 widest cells shortened) and R9 (`query_market_rate`). v0.2.3 adds `state: missing` (W-ISS-61). Change map: §11.
 
 ---
 
@@ -252,11 +252,12 @@ Raw notes stay untouched. Their metadata lives in `_meta/source-registry.csv`.
 | contains_client_data | true · false                                                                                |
 | client_code          | ENSO · BERL · LUND · JAYE · blank                                                           |
 | legacy_ids           | `\|`-separated                                                                              |
-| state                | registered · ingested · excluded                                                            |
+| state                | registered · ingested · excluded · missing                                                  |
 | wiki_pages           | `\|`-separated page IDs built from it                                                       |
 
 Rule: a source with `producer: llm`, `mixed` or `unknown` never supports `prov: V` on its own.
 Rule: `producer: unknown` is treated as `mixed` (F6).
+Rule: `state: missing` = a registered path no longer present in the canonical vault and with no hash match elsewhere; the row and its `src_id` are kept (W-ISS-61).
 Rule: `client_code` is blank when `contains_client_data: false`, or when the client is unknown (CLIENT-UNKNOWN, §5.1).
 Rule: a sha256_16 change marks the source `registered` again (re-ingest due).
 
@@ -339,6 +340,7 @@ These land as frontmatter spec v0.2 and glossary v0.2 when this pack is promoted
 | R6       | `tool_surface` example uses the glossary form `rule-engine`                                                    | §5.2              |
 | W-ISS-37 | 3 widest table cells moved to notes (Client row, §10 glossary row, appendix padding row)                       | §3, §10, appendix |
 | R9       | "market CTR" and "category benchmark" (SRC-0008 sense) locked as `query_market_rate` (WR-055)                  | §10               |
+| W-ISS-61 | Registry `state` enum + `missing` and its rule (WR-071)                                                        | §7                |
 
 ---
 
