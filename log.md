@@ -58,3 +58,6 @@ Append-only. Header: `## [YYYY-MM-DD] op | title`. Ops: ingest · query · lint 
 
 ## [2026-11-01] ingest | source_type backfill (WR-074)
 - export 24, note 22, code 14; 5 rows excluded (registered → excluded). States: 1301 registered, 170 excluded, 10 missing, 8 ingested. No registered row has blank source_type. lint 0 BLOCK, 5 WARN, 9 INFO.
+
+## [2026-11-01] ingest | dot-folder rename (W-ISS-58, WR-075)
+- PPC/Core/.{Agnostic Substrates, Client Substrate, PPC Contextual Framework} renamed without the dot (Obsidian Sync skips dot-folders). 29 registry paths updated, src_ids kept. All 1479 non-missing registry paths exist on disk. lint 0 BLOCK, 5 WARN, 9 INFO.
