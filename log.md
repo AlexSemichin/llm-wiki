@@ -41,3 +41,8 @@ Append-only. Header: `## [YYYY-MM-DD] op | title`. Ops: ingest · query · lint 
 
 ## [2026-11-01] schema | subject pack v0.2.2 → v0.2.3 (W-ISS-61, WR-071)
 - Registry `state` enum adds `missing` + definition rule (§7); change map row (§11). L-16 PASS; lint 0 BLOCK.
+
+## [2026-11-01] ingest | domain scope applied to 190 blank-domain rows (W-ISS-49, WR-072)
+- domain_hint set on 69: CTLG 50, PPC 8, INTEL 4, LST 2, MEAS 2, AGCY 2 (contains_client_data true, client unknown), ECON 1.
+- 121 rows `state: excluded`: Information Retrieval, Agent Architecture & OS Engineering, Command Center, Vault/*, Agency_CommerceMind, Reasoning, KA, Onboarding. States: 1350 registered, 121 excluded, 10 missing, 8 ingested.
+- lint 0 BLOCK, 5 WARN, 9 INFO (unchanged).
